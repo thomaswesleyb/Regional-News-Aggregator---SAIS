@@ -1,0 +1,65 @@
+# RSS/Atom feeds scraped every run.
+#
+#   name    - shown in the email next to each article
+#   url     - the feed URL
+#   regions - optional; for region-focused outlets, articles count as matching
+#             these regions even if no region keyword appears in the text.
+#             Must be region names defined in keywords.toml.
+
+[[source]]
+name = "DW — Germany"
+url = "https://rss.dw.com/rdf/rss-en-ger"
+regions = ["germany"]
+
+[[source]]
+name = "DW — Europe"
+url = "https://rss.dw.com/rdf/rss-en-eu"
+
+[[source]]
+name = "Spiegel International"
+url = "https://www.spiegel.de/international/index.rss"
+
+[[source]]
+name = "The Local Germany"
+url = "https://www.thelocal.de/feeds/rss.php"
+regions = ["germany"]
+
+[[source]]
+name = "Politico Europe"
+url = "https://www.politico.eu/feed/"
+
+[[source]]
+name = "Euractiv"
+url = "https://www.euractiv.com/feed/"
+
+[[source]]
+name = "Euronews"
+url = "https://www.euronews.com/rss?level=theme&name=news"
+
+[[source]]
+name = "Balkan Insight"
+url = "https://balkaninsight.com/feed/"
+regions = ["balkans"]
+
+[[source]]
+name = "The Moscow Times"
+url = "https://www.themoscowtimes.com/rss/news"
+regions = ["russia"]
+
+[[source]]
+name = "Meduza"
+url = "https://meduza.io/rss/en/all"
+regions = ["russia"]
+
+[[source]]
+name = "Novaya Gazeta Europe"
+url = "https://novayagazeta.eu/feed/rss/en"
+regions = ["russia"]
+
+[[source]]
+name = "bne IntelliNews"
+url = "https://www.intellinews.com/feed/"
+
+[[source]]
+name = "OSW Centre for Eastern Studies"
+url = "https://www.osw.waw.pl/en/rss.xml"

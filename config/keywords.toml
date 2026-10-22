@@ -1,0 +1,173 @@
+# Keywords that decide which articles and datasets make it into the digest.
+#
+# Each term maps to a weight. Matching is case-insensitive on whole words, and
+# multi-word phrases are fine ("European Central Bank"). End a term with * to
+# match any word ending: "Serb*" matches Serb, Serbia, Serbian, Serbs.
+#
+# An item is included when ALL of these hold:
+#   1. it matches at least one region term (or comes from a source tagged with a region)
+#   2. it matches at least one topic term
+#   3. its score >= scoring.threshold
+#   4. its title matches no exclude term
+#
+# Score = sum of weights of every distinct matched term (region and topic).
+# A term found in the title counts title_multiplier times its weight.
+#
+# Region and topic names (the [regions.X] / [topics.X] headers) are free-form; add,
+# rename or remove them as needed. Region names are referenced from news_sources.toml
+# and dataset_sources.toml.
+
+# Articles whose title matches any of these are dropped.
+exclude = ["Bundesliga", "football", "Champions League", "Eurovision", "horoscope", "recipe"]
+
+[scoring]
+threshold = 4
+title_multiplier = 2
+lookback_hours = 26
+max_articles_per_region = 12
+max_datasets = 8
+
+[regions.germany]
+"German*" = 3
+"Berlin" = 2
+"Bundestag" = 3
+"Bundeswehr" = 3
+"Bundesbank" = 3
+"Merz" = 3
+"Scholz" = 2
+"AfD" = 3
+"CDU" = 2
+"SPD" = 2
+"Greens" = 1
+"Pistorius" = 3
+"Deutschland" = 3
+"Bavaria*" = 2
+"Saxony" = 2
+"Thuringia" = 2
+
+[regions.balkans]
+"Balkan*" = 3
+"Serb*" = 3
+"Belgrade" = 3
+"Vučić" = 3
+"Vucic" = 3
+"Kosovo*" = 3
+"Pristina" = 3
+"Bosnia*" = 3
+"Sarajevo" = 3
+"Republika Srpska" = 3
+"Dodik" = 3
+"Montenegr*" = 3
+"Podgorica" = 3
+"North Macedonia*" = 3
+"Skopje" = 3
+"Albania*" = 3
+"Tirana" = 3
+"Croatia*" = 2
+"Zagreb" = 2
+"Slovenia*" = 1
+"Western Balkans" = 3
+
+[regions.russia]
+"Russia*" = 3
+"Kremlin" = 3
+"Moscow" = 3
+"Putin" = 3
+"Lavrov" = 3
+"Peskov" = 2
+"Medvedev" = 2
+"Duma" = 2
+"Rosneft" = 2
+"Gazprom" = 2
+"Belousov" = 2
+"Gerasimov" = 2
+"St. Petersburg" = 2
+
+[topics.security]
+"security" = 2
+"defen*" = 2
+"military" = 2
+"army" = 2
+"NATO" = 3
+"missile*" = 2
+"drone*" = 2
+"war" = 2
+"ceasefire" = 2
+"troops" = 2
+"sabotage" = 3
+"espionage" = 3
+"spy" = 2
+"hybrid warfare" = 3
+"cyber*" = 2
+"terror*" = 2
+"intelligence" = 2
+"nuclear" = 2
+"weapons" = 2
+"arms" = 1
+"conflict" = 1
+"border" = 1
+"police" = 1
+"extremis*" = 2
+"Verteidigung" = 2
+"Sicherheit" = 2
+"Kriminalität" = 2
+
+[topics.politics]
+"election*" = 2
+"parliament*" = 2
+"government" = 1
+"coalition" = 2
+"chancellor" = 2
+"president" = 1
+"prime minister" = 2
+"minister" = 1
+"opposition" = 2
+"protest*" = 2
+"referendum" = 3
+"sanction*" = 2
+"diplomat*" = 2
+"EU accession" = 3
+"EU membership" = 3
+"enlargement" = 2
+"corruption" = 2
+"rule of law" = 2
+"constitution*" = 2
+"vote" = 1
+"party" = 1
+"Bundestag" = 1
+"Haushalt" = 1
+
+[topics.economy]
+"econom*" = 2
+"GDP" = 3
+"inflation" = 3
+"recession" = 3
+"growth" = 1
+"budget" = 2
+"debt" = 2
+"deficit" = 2
+"interest rate*" = 2
+"central bank" = 2
+"ECB" = 2
+"trade" = 1
+"tariff*" = 2
+"export*" = 2
+"import*" = 1
+"industr*" = 1
+"manufacturing" = 2
+"energy" = 1
+"gas" = 1
+"oil" = 1
+"ruble" = 3
+"euro" = 1
+"unemployment" = 2
+"labour market" = 2
+"labor market" = 2
+"investment" = 1
+"Wirtschaft*" = 2
+"Konjunktur" = 2
+"Schulden" = 2
+"Verbraucherpreis*" = 2
+"Arbeitslos*" = 2
+"Außenhandel" = 2
+"prices" = 1
