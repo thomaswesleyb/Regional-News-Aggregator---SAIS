@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Dry-run previews
+digest*.html
+digest*-chart-*.png

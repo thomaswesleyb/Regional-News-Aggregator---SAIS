@@ -1,0 +1,4 @@
+# Who receives the daily digest. Recipients are sent as Bcc, so they don't see each other.
+recipients = [
+  "twesleybailey@gmail.com",
+]

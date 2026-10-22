@@ -1,0 +1,40 @@
+# Portals checked for newly released datasets.
+#
+#   name    - shown in the email
+#   kind    - "ckan"     : CKAN portal; url is the site root (…/api/3/action/package_search is appended)
+#             "europa"   : data.europa.eu search API; url is the search endpoint
+#             "eurostat" : Eurostat "data updated" RSS feed; url is the feed
+#   queries - search terms sent to the portal (ckan/europa only); results are then
+#             scored with keywords.toml like news articles
+#   regions - optional; datasets from this source count as matching these regions
+#   page_url - optional (ckan only); dataset page link, {name} is replaced by the
+#              CKAN dataset name. Defaults to <url>/dataset/{name}.
+#
+# ckan/europa report datasets *created* in the lookback window; eurostat reports
+# datasets whose data was *updated* in it (that is how Eurostat publishes releases).
+
+[[source]]
+name = "Humanitarian Data Exchange"
+kind = "ckan"
+url = "https://data.humdata.org"
+queries = ["Germany", "Russia", "Serbia", "Bosnia", "Kosovo", "Montenegro", "North Macedonia", "Albania"]
+
+[[source]]
+name = "GovData.de"
+kind = "ckan"
+url = "https://www.govdata.de/ckan"
+page_url = "https://www.govdata.de/suche/daten/{name}"
+queries = ["Wirtschaft", "Sicherheit", "Verteidigung", "Bundestag", "Haushalt", "Kriminalität"]
+regions = ["germany"]
+
+[[source]]
+name = "data.europa.eu"
+kind = "europa"
+url = "https://data.europa.eu/api/hub/search/search"
+queries = ["Germany", "Russia", "Serbia", "Bosnia", "Kosovo", "Montenegro", "North Macedonia", "Albania"]
+
+[[source]]
+name = "Eurostat"
+kind = "eurostat"
+url = "https://ec.europa.eu/eurostat/api/dissemination/catalogue/rss/en/statistics-update.rss"
+regions = ["germany", "balkans"]
