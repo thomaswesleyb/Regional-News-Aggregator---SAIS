@@ -12,7 +12,7 @@ dependencies = [
     "jinja2==3.1.6",
     "matplotlib==3.11.2",
     "openpyxl==3.1.5",
-    "pandas==3.1.0",
+    "pandas==3.1.1",
     "trafilatura==2.3.1",
 ]
 
@@ -20,16 +20,16 @@ dependencies = [
 news-aggregator = "news_aggregator.cli:main"
 
 [build-system]
-requires = ["uv_build>=0.11.11,<0.12.0"]
+requires = ["uv_build>=0.11.11,<0.14.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "hypothesis==6.170.5",
+    "hypothesis==6.170.14",
     "pip-audit==2.10.1",
-    "pytest==9.1.1",
-    "ruff==0.17.1",
-    "ty==0.0.90",
+    "pytest==9.2.0",
+    "ruff==0.17.3",
+    "ty==0.0.97",
 ]
 
 [tool.ruff]
